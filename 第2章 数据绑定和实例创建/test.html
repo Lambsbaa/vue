@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>第2章</title>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<li v-for="book in books">{{book.name}}</li>
+	</ul>
+</div>
+<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+	var myData = {
+		name:"小张",
+		books:[
+			{name:"《springboot实战》"},
+			{name:"《java语言精粹》"},
+			{name:"《java高级程序设计》"}
+		]
+	};
+	//通过Vue构造函数来创建app实例
+	var app = new Vue({
+		//el用于指定页面中已存在的DOM元素来挂在vue实例，可以是html元素，也可以是css选择器
+		el:"#app",
+		
+
+		//声明数据
+		//1、显示声明变量
+		// data:{
+		// 	name:"小羊",
+		// 	yourName:yourName,
+		// 	books:[
+		// 		{name:"《vue.js实战》"},
+		// 		{name:"《js语言精粹》"},
+		// 		{name:"《js高级程序设计》"}
+		// 	]
+		// }
+		//2、指向已有变量，且与myData建立了双向绑定
+		data:myData,
+
+		
+		/*生命周期*/
+	});
+	console.log(app.$el);//通过$el来访问app元素
+	console.log(app.name);//访问app内的数据
+
+	//第2种声明数据的方式，验证其数据绑定
+	myData.name="小张张";
+	console.log(app.name);//小张张
+</script>
+</body>
+</html>
